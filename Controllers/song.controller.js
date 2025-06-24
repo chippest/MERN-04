@@ -51,3 +51,17 @@ export const deleteSong = async (req, res) => {
     res.status(500).json({ success: false, message: "server error" });
   }
 };
+
+export const updateSong = async (req, res) => {
+  const { id } = req.params;
+  const song = req.body;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ success: false, message: "invalid id" });
+  }
+  try {
+    const updatedSong = await Song.findByIdAndUpdate(id, song, { new: true });
+    res.status(200).json({ success: true, data: updatedSong });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "server error" });
+  }
+};
