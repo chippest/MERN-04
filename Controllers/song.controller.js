@@ -21,3 +21,12 @@ export const createSong = async (req, res) => {
     });
   }
 };
+
+export const fetchAllSongs = async (req, res) => {
+  try {
+    const songs = await Song.find({});
+    res.status(200).json({ success: true, data: songs });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "server error" });
+  }
+};
