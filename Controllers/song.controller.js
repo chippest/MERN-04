@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Song from "../Model/song.model.js";
 
 export const createSong = async (req, res) => {
@@ -36,6 +37,16 @@ export const fetchSong = async (req, res) => {
   try {
     const song = await Song.find({ _id: id });
     res.status(200).json({ success: true, data: song });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "server error" });
+  }
+};
+
+export const deleteSong = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedSong = await Song.findByIdAndDelete(id);
+    res.status(200).json({ success: true, data: deletedSong });
   } catch (error) {
     res.status(500).json({ success: false, message: "server error" });
   }
