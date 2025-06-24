@@ -30,3 +30,13 @@ export const fetchAllSongs = async (req, res) => {
     res.status(500).json({ success: false, message: "server error" });
   }
 };
+
+export const fetchSong = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const song = await Song.find({ _id: id });
+    res.status(200).json({ success: true, data: song });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "server error" });
+  }
+};
