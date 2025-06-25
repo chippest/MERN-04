@@ -1,0 +1,101 @@
+.productPage {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      height: 100%;
+      aspect-ratio: 1/1;
+      font-size: 2rem;
+      margin-left: 0.8rem;
+      cursor: pointer;
+    }
+  }
+  .productList {
+    display: flex;
+    overflow: auto;
+    padding: 1rem;
+    gap: 1rem;
+    .product {
+      background: #00000042;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+      border-radius: 5px;
+      img {
+        height: 10rem;
+        width: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+      .info {
+        div {
+          display: flex;
+          background: #32b8f71c;
+          border: 1px solid rgba(0, 0, 0, 0.301);
+          margin: 0.1rem 0;
+          input {
+            font-size: 1rem;
+            padding: 0.8rem;
+            background: none;
+            border: none;
+          }
+          button {
+            font-size: 1.5rem;
+            aspect-ratio: 1/1;
+            height: 100%;
+            padding: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.308);
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+      .updates {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          margin: 0.1rem 0;
+          font-size: 0.9rem;
+          padding: 0.5rem;
+          border: none;
+          cursor: pointer;
+          transition: 0.1s all;
+          font-weight: bold;
+
+          &:active {
+            letter-spacing: 0.2rem;
+          }
+          &.update {
+            background: rgba(0, 128, 0, 0.432);
+            &:active {
+              background: green;
+            }
+          }
+          &.delete {
+            background: rgba(128, 0, 0, 0.603);
+            &:active {
+              background: red;
+            }
+          }
+        }
+      }
+    }
+  }
+  .back {
+    width: 100%;
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+}
