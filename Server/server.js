@@ -1,5 +1,6 @@
 import express from "express";
 import songsRouter from "./Routes/song.route.js";
+import productsRouter from "./Routes/product.route.js";
 import dotenv from "dotenv";
 import { connectDB } from "./Config/db.js";
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 app.use("/api/songs", songsRouter);
+app.use("/api/products", productsRouter);
 
 app.listen(8080, () => {
   connectDB();
