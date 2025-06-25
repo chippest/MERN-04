@@ -1,7 +1,7 @@
 import express from "express";
-import songsRouter from "../Routes/song.route.js";
+import songsRouter from "./Routes/song.route.js";
 import dotenv from "dotenv";
-import { connectDB } from "../Config/db.js";
+import { connectDB } from "./Config/db.js";
 
 const app = express();
 dotenv.config();
