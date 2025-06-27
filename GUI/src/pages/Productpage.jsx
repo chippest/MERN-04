@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./productpage.css";
+import CreateProduct from "../components/CreateProduct";
 
 function Productpage({ navigate }) {
   const [products, setProducts] = useState([]);
   const [originalProducts, setOriginalProducts] = useState([]);
+  const [creating, setCreating] = useState(false);
 
   const handleUpdate = (index, field, value) => {
     const updated = [...products];
@@ -66,7 +68,14 @@ function Productpage({ navigate }) {
     <>
       <div className="page productPage">
         <h1>
-          Products |<button>+</button>
+          Products |
+          <button
+            onClick={() => {
+              setCreating((o) => (o = !o));
+            }}
+          >
+            +
+          </button>
         </h1>
         <div className="productList">
           {products.map((p, index) => {
@@ -168,6 +177,7 @@ function Productpage({ navigate }) {
         >
           go back
         </button>
+        {creating && <CreateProduct off={setCreating} />}
       </div>
     </>
   );

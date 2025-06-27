@@ -1,0 +1,33 @@
+.createProduct {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #00000079;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+
+  .OUT {
+    position: absolute;
+    top: 1rem;
+    font-size: 5rem;
+    right: 1rem;
+  }
+
+  .formThingie {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+    button {
+      width: fit-content;
+      scale: 5;
+    }
+  }
+}
