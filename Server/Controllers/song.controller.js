@@ -3,7 +3,7 @@ import Song from "../Model/song.model.js";
 
 export const createSong = async (req, res) => {
   const song = req.body;
-  if (!song.title || !song.artist || !song.cover) {
+  if (!song.title || !song.artist || !song.cover || !song.song) {
     return res
       .status(404)
       .json({ success: false, message: "Fill all the fields properly" });
